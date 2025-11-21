@@ -47,10 +47,17 @@ function MovieModal({ movie, onClose }: MovieModalProps) {
           &times;
         </button>
         <img
-          src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-          alt={movie.title}
-          className={css.image}
-        />
+  src={
+    movie.backdrop_path
+      ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+      : "https://placehold.co/500x750?text=No+Image"
+
+
+  }
+  alt={movie.title}
+  className={css.image}
+/>
+
         <div className={css.content}>
           <h2>{movie.title}</h2>
           <p>{movie.overview}</p>

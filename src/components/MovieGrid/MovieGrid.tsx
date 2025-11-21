@@ -12,10 +12,16 @@ function MovieGrid({ movies, onSelect }: MovieGridProps) {
       {movies.map((movie) => (
         <li key={movie.id} onClick={() => onSelect(movie)}>
           <div className={css.card}>
-            <img
+               <img
               className={css.image}
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt="movie title"
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  : "https://placehold.co/500x750?text=No+Image"
+
+
+              }
+              alt={movie.title}
               loading="lazy"
             />
             <h2 className={css.title}>{movie.title}</h2>
